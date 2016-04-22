@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+install_scala() {
+  local install_type=$1
+  local version=$2
+  local install_path=$3
+
+  if [ "$TMPDIR" = "" ]; then
+    local tmp_download_dir=$(mktemp -d)
+  else
+    local tmp_download_dir=$TMPDIR
+  fi
+
+  local source_path=$(get_download_file_path $install_type $version $tmp_download_dir)
+  echo $source_path
+  download_source_file $install_type $version $source_path
+
+  (
+    tar zxf $source_path -C $install_path --strip-components=1 || exit 1
+  )
+}
+
+download_source_file() {
+  local install_type=$1
+  local version=$2
+  local download_path=$3
+  local download_url=$(get_download_url $install_type $version)
+
+  curl -Lo $download_path -C - $download_url
+}
+
+get_download_file_path() {
+  local install_type=$1
+  local version=$2
+  local tmp_download_dir=$3
+
+  local pkg_name="scala-${version}.tgz"
+
+  echo "$tmp_download_dir/$pkg_name"
+}
+
+get_download_url() {
+  local install_type=$1
+  local version=$2
+
+  echo "http://downloads.lightbend.com/scala/${version}/scala-${version}.tgz"
+}
+
+install_scala $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
