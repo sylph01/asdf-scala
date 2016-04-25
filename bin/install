@@ -43,11 +43,16 @@ get_download_url() {
   local install_type=$1
   local version=$2
 
-  if [[ $2 < "2.11.0-M8" ]]
+  if [[ "2.9.0-a" =~ "2\..\..*" ]]
   then
     echo "http://www.scala-lang.org/files/archive/scala-${version}.tgz"
   else
-    echo "http://downloads.lightbend.com/scala/${version}/scala-${version}.tgz"
+    if [[ $2 < "2.11.0-M8" ]]
+    then
+      echo "http://www.scala-lang.org/files/archive/scala-${version}.tgz"
+    else
+      echo "http://downloads.lightbend.com/scala/${version}/scala-${version}.tgz"
+    fi
   fi
 }
 

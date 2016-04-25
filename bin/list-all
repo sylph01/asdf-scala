@@ -34,6 +34,27 @@ versions_list=(
   2.10.2
   2.10.2-RC2
   2.10.1
+  2.9.3
+  2.9.2
+  2.9.1-1
+  2.9.1.final
+  2.9.0.1
+  2.9.0.final
+  2.8.2.final
+  2.8.1.final
+  2.8.0.final
+  2.7.7.final
+  2.7.6.final
+  2.7.5.final
+  2.7.4.final
+  2.7.3.final
+  2.7.2.final
+  2.7.1.final
+  2.7.0-final
+  2.6.1-final
+  2.6.0-final
+  2.5.1-final
+  2.5.0-final
 )
 
 versions = ""
