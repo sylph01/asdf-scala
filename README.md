@@ -1,4 +1,4 @@
-# asdf-scala
+# asdf-scala [![Build Status](https://travis-ci.org/sylph01/asdf-scala.svg?branch=master)](https://travis-ci.org/sylph01/asdf-scala)
 
 Scala plugin for [asdf](https://github.com/asdf-vm/asdf) version manager
 
