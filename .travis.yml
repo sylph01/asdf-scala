@@ -1,7 +1,7 @@
 language: java
 jdk:
   - openjdk7
-script: asdf plugin-test scala https://github.com/sylph01/asdf-scala.git 'node --version'
+script: asdf plugin-test scala https://github.com/sylph01/asdf-scala.git
 
 before_script:
   - git clone https://github.com/asdf-vm/asdf.git asdf
